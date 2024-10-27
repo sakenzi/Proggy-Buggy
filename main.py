@@ -1,12 +1,11 @@
-A)def calculate(Max: str, Min: str) -> int:
-    max_power = len(Max) - 1
-    min_power = -(len(Min) - 2)
+from collections import Counter
 
-    s = max_power - min_power
+def check_plagiarism(line1: str, line2: str) -> str:
+    if Counter(line1) == Counter(line2):
+        return "PLAGIARISM"
+    else:
+        return "AUTHENTIC"
 
-    return s
-
-Max = input().strip()
-Min =  input().strip()
-
-print(calculate(Max, Min))
+line1 = input().strip()
+line2 = input().strip()
+print(check_plagiarism(line1, line2))
